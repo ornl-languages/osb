@@ -1,0 +1,170 @@
+SSCA1
+-----
+
+This benchmark is based on the DARPA HPCS benchmark challenge SSCA1. In
+particular, this implments SSCA1 kernel 1. Kernel 2 is also implmented for
+the verification of the output of kernel 1, but is not optimized for
+parallel execution.
+
+COMPILERS
+---------
+
+This benchmark has been tested with Cray compilers using the PGI programming
+environment for both MPI3 and SHMEM. GCC has been tested with OpenSHMEM-X
+and OpenMPI.
+
+INSTALL
+-------
+
+This benchmark is designed to be run from the source directory.  To build,
+edit the top level Makefile to choose options. There are predefined options
+for compiling with mpicc, gcc, and cray cc. There is also an option between
+using -DUSE_SHMEM and -DUSE_MPI3 to select between using OpenSHMEM or MPI3
+one sided operations. By default it will build the OpenSHMEM version using
+cray with a gcc environment. If this is what you want, just type make. The
+binary will be called ssca1.
+
+RUNNING
+-------
+
+To run the program, use the runtime's launcher (oshrun or mpirun is typical)
+as usual. The only runtime option is an environment variable called SCALE.
+SCALE adjusts the size of the inputs. An input of SCALE=22 should run in
+half the time as SCALE=23. The file parameters.c has some compile time
+options for the Smith-Waterman algorithm such as match score and gap
+penelties. Typical benchmarking usage should not modify these.
+
+After the benchmark runs, the benchmark will display the timings for the
+data generator, kernel 1, and kernel 2. The main kernel of interest is
+kernel 1, since it is the one optimized with OpenSHMEM and MPI3. There will
+also be verification data printed at the end. As long as the verification
+sequences are found and scored correctly the benchmark is functioning
+correctly.
+
+When runnig SSCA1 the results should be similar to the following:
+
+-----
+  Running with OpenMP, thread count: 1
+  Running with OpenMP, thread count: 1
+  Running with OpenSHMEM, npes = 2
+  Disabling OpenSHMEM prefetching
+  HPCS SSCA #1 Bioinformatics Sequence Alignment Executable Specification:
+  Running...
+  Using seed 2613174141
+  
+  Scalable Data Generator - genScalData() beginning execution...
+  Inserting sequence ACDEFG*IDENTICAL*HIKLMN in location 9674
+  Inserting sequence ACDEFG*MISQRMATCHES*HIKLMN in location 3989
+  Inserting sequence ACDEFG*STARTGAPMIDSTEND*HIKLMN in location 29873
+  Inserting sequence MNLKIH*IDENTICAL*GFEDCA in location 18789
+  Inserting sequence MNLKIH*MISRQMATCHES*GFEDCA in location 14384
+  Inserting sequence MNLKIH*STARTMIDSTGAPEND*GFEDCA in location 23040
+  
+      Elapsed time: 0 hour(s), 0 minute(s), 0 second(s), 131 milliseconds,  69 micro second(s).
+  
+     Length of main sequence in codons: 32846
+    Length of match sequence in codons: 32846
+    Weight for exactly matching codons: 5
+             Weight for similar codons: 4
+          Weight for dissimilar codons: -3
+                Penalty to start a gap: 5
+       Penalty for each codon in a gap: 2
+  
+  Begining Kernel 1 execution.
+  
+      Elapsed time: 0 hour(s), 17 minute(s), 25 second(s), 691 milliseconds,  138 micro second(s).
+  
+  Begining Kernel 2 execution.
+  Could not find sequence 93.
+  
+      Elapsed time: 0 hour(s), 0 minute(s), 0 second(s), 36 milliseconds,  165 micro second(s).
+  
+  Found 100 acceptable alignments with scores from 55 to 24.
+  
+  Starting   Amino     Codon           Ending
+  position   acids     bases           position
+  
+  verifyAlignment 0, succeeded; score 55:
+     9680  *IDENTICAL*  tgaatagacgagaacacgatatgcgcgctgtga     9690
+    18795  *IDENTICAL*  tgaatagacgagaacacgatatgcgcgctgtga    18805
+  
+  verifyAlignment 1, succeeded; score 54:
+     3995  *MISQRMATCHES*  tgaatgataagccagaggatggcgacgtgccacgagagctga     4008
+    14390  *MISRQMATCHES*  tgaatgataagcaggcagatggcgacgtgccacgagagctga    14403
+  
+  verifyAlignment 2, succeeded; score 53:
+    29879  *STARTGAPMIDST---END*  tgaagcacggcgaggacgggggcgccgatgatagacagcacg---------gagaacgactga    29896
+    23046  *START---MIDSTGAPEND*  tgaagcacggcgaggacg---------atgatagacagcacgggggcgccggagaacgactga    23063
+  
+  verifyAlignment 3, succeeded; score 35:
+    24393  DLVVQGFS  gacctggttgtacagggtttctct    24400
+    21867  DLVVQGFS  gacctggtcgtgcagggatttagt    21874
+  
+  verifyAlignment 4, succeeded; score 33:
+    21104  SSRSVHQAG*VRG  tcctcgcggtccgttcatcaggcggggtgagtacgggga    21116
+    28586  SSRS---AG*VRG  tcttcgagaagt---------gcggggtaggtaaggggc    28595
+  
+  verifyAlignment 5, succeeded; score 31:
+    14030  AQSVSRWSVLC  gctcagagcgtaagccgatggtcagttctttgt    14040
+    10939  ARSVSR-SVLC  gcccgaagcgtcagccga---agtgttttgtgt    10948
+  
+  verifyAlignment 6, succeeded; score 31:
+    24401  IS*KAHR  atttcctagaaggctcaccgg    24407
+    18575  IS*KAHR  atctcctaaaaggcgcatcgg    18581
+  
+  verifyAlignment 7, succeeded; score 30:
+     7857  NNRGPLLGC  aataaccgtggcccgttgttgggatgc     7865
+    13336  NYRGPLLGC  aactatagagggccgcttttagggtgt    13344
+  
+  verifyAlignment 8, succeeded; score 30:
+    24013  HVLRPSARLAVR  cacgtattgcgtccgtctgcgcgccttgccgttcgc    24024
+    13497  HVLRHSTRLASR  cacgtacttaggcactctacccgtctcgcgtcgcgg    13508
+  
+  verifyAlignment 9, succeeded; score 29:
+      419  TSRYSED  actagccgatactcagaggac      425
+    17540  TSRYSED  acatcgcgttattccgaagac    17546
+-----
+
+RESULTS NOTES
+-------------
+
+Kernel 1 is the relevant benchmark number. The Scalable Data Generator and
+the Kernel 2 times are informational only. Kernel 2 verifies the results of
+Kernel 1. The first three results should be, in order, "*IDENTICAL*",
+*MISQRMATCHES*, *STARTGAPMIDST---END*, with scores of 55, 54, and 53
+respectively. If the end result is not these values then the underlaying
+implmentation of OpenSHMEM is faulty. Verifications below these sequences
+are based on random chance, however they should still be in order by score.
+The sort used to arrange these scores is not stable.
+
+It should be noted, increasing the number of remote nodes while keeping
+SCALE the same will result in a slow down. This is because SCALE creates a
+problem size N, and each node gets M elements for M=N/n_ranks. Adding more
+ranks reduces the size of M, resulting in more remote operations to complete
+the benchmark. Increasing SCALE by 1 when doubling the number of ranks will
+result in a similar run time.
+
+
+
+COPYRIGHT
+---------
+
+This file is part of SSCA1.
+
+Copyright (C) 2008-2018, UT-Battelle, LLC.
+
+This product includes software produced by UT-Battelle, LLC under Contract No.
+DE-AC05-00OR22725 with the Department of Energy.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the New BSD 3-clause software license (LICENSE).
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+LICENSE for more details.
+
+For more information please contact the SSCA1 developers at:
+bakermb@ornl.gov
+
+

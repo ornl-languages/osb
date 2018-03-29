@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------
+The OpenSHMEM Implementation of NPB 3.2 (NPB3.2-SHMEM)
+--------------------------------------------------------------------------
+HPCTools Group
+University of Houston
+--------------------------------------------------------------------------
+
+NPB3.2-SHMEM is the OpenSHMEM implementation of version 3.2 of the NAS
+parallel benchmarks which may be used to benchmark platforms supporting
+OpenSHMEM.  It is based on the MPI implementation of NPB 3.2 which provides 9
+benchmarks in total.  Seven of these are written in Fortran which are CG, BT,
+SP, LU, MG, FT, EP. Two benchmarks are written in C, IS and DT. More
+information about the NAS Parallel Benchmarks may be found here:
+
+https://www.nas.nasa.gov/publications/npb.html
+
+Our intention is to eventually provide C versions of all 9 NAS benchmarks
+written using OpenSHMEM. To this end, we have creating two separate
+directories, one for holding only the OpenSHMEM Fortran benchmarks and another
+for holding the OpenSHMEM C benchmarks.
+
+---------------------------------
+Current Status as of Release 1.0a
+---------------------------------
+
+Currently, the following benchmarks are available in OpenSHMEM:
+
+Fortran: EP, MG, BT, SP
+C: IS
+
+More benchmarks, as well as optimized code for performance, will be made
+available in forthcoming releases.
+
+
+-----------------------------------
+Compiling and Executing Benchmarks
+-----------------------------------
+
+1. Compilation
+
+To compile the benchmarks, one should first create a make.def file in the
+config directory. Several examples are provided as a template.  Check also the
+suite.def file to compile a suite benchmarks. Then:
+
+   make <benchmark-name> NPROCS=<number> CLASS=<class> [SUBTYPE=<type>]
+
+   where <benchmark-name>  is "bt", "cg", "ep", "ft", "is", "lu",
+                              "mg", or "sp"
+         <number>          is the number of processes
+         <class>           is "S", "W", "A", "B", "C", or "D"
+
+Example:
+
+   make MG CLASS=C NPROCS=256
+
+Note: Class D is not available for IS (Integer Sort).
+
+2. Execution
+
+The executable is named <benchmark-name>.<class>.<nprocs>, The executable is
+placed in the bin subdirectory. The method for running the OpenSHMEM program
+depends on your local system.
+
+Example:
+
+   oshrun -n 256 ./bin/mg.C.256

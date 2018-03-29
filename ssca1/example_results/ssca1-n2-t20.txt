@@ -1,0 +1,79 @@
+Running with OpenMP, thread count: 20
+Running with OpenMP, thread count: 20
+Running with OpenSHMEM, npes = 2
+Disabling OpenSHMEM prefetching
+HPCS SSCA #1 Bioinformatics Sequence Alignment Executable Specification:
+Running...
+Using seed 2613174141
+
+Scalable Data Generator - genScalData() beginning execution...
+Inserting sequence ACDEFG*IDENTICAL*HIKLMN in location 9674
+Inserting sequence ACDEFG*MISQRMATCHES*HIKLMN in location 3989
+Inserting sequence ACDEFG*STARTGAPMIDSTEND*HIKLMN in location 29873
+Inserting sequence MNLKIH*IDENTICAL*GFEDCA in location 18789
+Inserting sequence MNLKIH*MISRQMATCHES*GFEDCA in location 14384
+Inserting sequence MNLKIH*STARTMIDSTGAPEND*GFEDCA in location 23040
+
+	Elapsed time: 0 hour(s), 0 minute(s), 0 second(s), 66 milliseconds,  89 micro second(s).
+
+   Length of main sequence in codons: 32846
+  Length of match sequence in codons: 32846
+  Weight for exactly matching codons: 5
+           Weight for similar codons: 4
+        Weight for dissimilar codons: -3
+              Penalty to start a gap: 5
+     Penalty for each codon in a gap: 2
+
+Begining Kernel 1 execution.
+
+	Elapsed time: 0 hour(s), 1 minute(s), 55 second(s), 488 milliseconds,  941 micro second(s).
+
+Begining Kernel 2 execution.
+Could not find sequence 89.
+
+	Elapsed time: 0 hour(s), 0 minute(s), 0 second(s), 35 milliseconds,  459 micro second(s).
+
+Found 100 acceptable alignments with scores from 55 to 24.
+
+Starting   Amino     Codon           Ending
+position   acids     bases           position
+
+verifyAlignment 0, succeeded; score 55:
+   9680  *IDENTICAL*  tgaatagacgagaacacgatatgcgcgctgtga     9690
+  18795  *IDENTICAL*  tgaatagacgagaacacgatatgcgcgctgtga    18805
+
+verifyAlignment 1, succeeded; score 54:
+   3995  *MISQRMATCHES*  tgaatgataagccagaggatggcgacgtgccacgagagctga     4008
+  14390  *MISRQMATCHES*  tgaatgataagcaggcagatggcgacgtgccacgagagctga    14403
+
+verifyAlignment 2, succeeded; score 53:
+  29879  *STARTGAPMIDST---END*  tgaagcacggcgaggacgggggcgccgatgatagacagcacg---------gagaacgactga    29896
+  23046  *START---MIDSTGAPEND*  tgaagcacggcgaggacg---------atgatagacagcacgggggcgccggagaacgactga    23063
+
+verifyAlignment 3, succeeded; score 35:
+  24393  DLVVQGFS  gacctggttgtacagggtttctct    24400
+  21867  DLVVQGFS  gacctggtcgtgcagggatttagt    21874
+
+verifyAlignment 4, succeeded; score 33:
+  21104  SSRSVHQAG*VRG  tcctcgcggtccgttcatcaggcggggtgagtacgggga    21116
+  28586  SSRS---AG*VRG  tcttcgagaagt---------gcggggtaggtaaggggc    28595
+
+verifyAlignment 5, succeeded; score 31:
+  14030  AQSVSRWSVLC  gctcagagcgtaagccgatggtcagttctttgt    14040
+  10939  ARSVSR-SVLC  gcccgaagcgtcagccga---agtgttttgtgt    10948
+
+verifyAlignment 6, succeeded; score 31:
+  24401  IS*KAHR  atttcctagaaggctcaccgg    24407
+  18575  IS*KAHR  atctcctaaaaggcgcatcgg    18581
+
+verifyAlignment 7, succeeded; score 30:
+   7857  NNRGPLLGC  aataaccgtggcccgttgttgggatgc     7865
+  13336  NYRGPLLGC  aactatagagggccgcttttagggtgt    13344
+
+verifyAlignment 8, succeeded; score 30:
+  24013  HVLRPSARLAVR  cacgtattgcgtccgtctgcgcgccttgccgttcgc    24024
+  13497  HVLRHSTRLASR  cacgtacttaggcactctacccgtctcgcgtcgcgg    13508
+
+verifyAlignment 9, succeeded; score 29:
+    419  TSRYSED  actagccgatactcagaggac      425
+  17540  TSRYSED  acatcgcgttattccgaagac    17546

@@ -1,0 +1,16 @@
+# -*- Makefile -*-
+# Copyright 2010, Georgia Institute of Technology, USA.
+# Copyright (c) 2018       UT-Battelle, LLC. All rights reserved.
+# See COPYING for license.
+# TJN: Add '-D_BSD_SOURCE' to enable use of strdup()
+CFLAGS = -g -std=c99 -Wall -Igenerator -I. -fopenmp -DUSE_OPENSHMEM -D_BSD_SOURCE
+LDLIBS = -lm -lrt
+LDFLAGS = -fopenmp
+#CPPFLAGS = -DUSE_OPENSHMEM -UUSE_MMAP_LARGE -UUSE_MMAP_LARGE_EXT
+CPPFLAGS = -DUSE_OPENSHMEM
+
+OSHCC=oshcc
+
+BUILD_OPENMP = Yes
+BUILD_MPI = No
+BUILD_OPENSHMEM = Yes

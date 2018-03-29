@@ -1,0 +1,5 @@
+CFLAGS =  -UUSE_DEBUG -fopenmp -g -fbounds-check    -Wpedantic -Wall -Wextra -Wno-missing-field-initializers   -Wno-unused-parameter -Drestrict=__restrict__  -UNDEBUG -ffast-math -DGRAPH_GENERATOR_MPI   -fno-omit-frame-pointer # -g -pg
+LDFLAGS = -fopenmp -Bstatic -g # -g -pg
+OSHCC = oshcc -DUSE_OPENSHMEM -I. -I../mpi -I..
+MPICC = mpicc
+CC = $(MPICC)

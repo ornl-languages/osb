@@ -1,0 +1,1005 @@
+Using OpenSHMEM version 1.3
+Using OpenSHMEM version 1.3
+Will be running with 111 different tests
+Will be running with 3 different size configurations
+Running tests
+
+#---------------------------------------------------
+# Benchmarking shmem_local_read 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000               5               0              11.51                   4482.95
+           16          1000               5             234              16.87                   6114.05
+           32          1000              13             242              26.65                   7742.04
+
+#---------------------------------------------------
+# Benchmarking shmem_local_write 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000               5             307              14.06                   3669.45
+           16          1000               5             229              17.45                   5912.68
+           32          1000              13             970              28.12                   7337.54
+
+#---------------------------------------------------
+# Benchmarking shmem_short_p 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11440           30577           12753.89                      4.04
+           16          1000           17270           22889           18545.66                      5.56
+           32          1000           28923           55064           29738.67                      6.94
+
+#---------------------------------------------------
+# Benchmarking shmem_int_p 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8141           35743            8600.77                      6.00
+           16          1000           10195           13037           10373.86                      9.94
+           32          1000           14220           89900           14602.19                     14.13
+
+#---------------------------------------------------
+# Benchmarking shmem_long_p 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7098           30021            7287.35                      7.08
+           16          1000            8146           31115            8929.96                     11.55
+           32          1000           10179           88689           11401.06                     18.10
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_p 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7090           10619            7835.86                      6.58
+           16          1000            8117           12135            9034.99                     11.42
+           32          1000           10203           35026           11414.05                     18.08
+
+#---------------------------------------------------
+# Benchmarking shmem_float_p 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8149           31094            9393.80                      5.49
+           16          1000           10195           34082           11629.97                      8.87
+           32          1000           14337           39662           15715.21                     13.13
+
+#---------------------------------------------------
+# Benchmarking shmem_double_p 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7098           29238            8070.81                      6.39
+           16          1000            8102           30892            9326.80                     11.06
+           32          1000           10179           35288           11093.03                     18.60
+
+#---------------------------------------------------
+# Benchmarking shmem_longdouble_p 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7072           30057            8462.44                     12.19
+           16          1000            7044           34594            7717.21                     13.37
+           32          1000            8541           31165            9601.97                     21.49
+
+#---------------------------------------------------
+# Benchmarking shmem_short_put 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7028           33203            7747.95                      6.66
+           16          1000            7072           11973            8200.11                     12.58
+           32          1000            7166           20894            7974.92                     25.87
+
+#---------------------------------------------------
+# Benchmarking shmem_int_put 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7083           10874            7627.25                      6.76
+           16          1000            7020           31100            7593.98                     13.58
+           32          1000            7150           30871            7678.97                     26.87
+
+#---------------------------------------------------
+# Benchmarking shmem_long_put 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7080           77930            8160.40                      6.32
+           16          1000            7059           30288            7935.49                     13.00
+           32          1000            7142           22085            8480.72                     24.33
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_put 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7080           10733            7733.92                      6.67
+           16          1000            7103           10660            8127.36                     12.69
+           32          1000            7166           35348            7769.54                     26.55
+
+#---------------------------------------------------
+# Benchmarking shmem_float_put 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7090           22478            8272.32                      6.23
+           16          1000            7049           11555            7974.57                     12.94
+           32          1000            7150           29963            8037.19                     25.67
+
+#---------------------------------------------------
+# Benchmarking shmem_double_put 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7103           22928            7711.77                      6.69
+           16          1000            7064           31843            7826.24                     13.18
+           32          1000            7158           82813            8410.56                     24.53
+
+#---------------------------------------------------
+# Benchmarking shmem_longdouble_put 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7018           85293            8301.20                     12.43
+           16          1000            7064           82027            7845.20                     13.15
+           32          1000            7166           30915            8028.73                     25.70
+
+#---------------------------------------------------
+# Benchmarking shmem_put32 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7114           23188            8045.67                      6.41
+           16          1000            7072           25738            8380.16                     12.31
+           32          1000            7166           27878            8179.91                     25.22
+
+#---------------------------------------------------
+# Benchmarking shmem_put64 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7098           77771            8230.70                      6.27
+           16          1000            7051           13185            7987.40                     12.91
+           32          1000            7174           18539            8016.86                     25.73
+
+#---------------------------------------------------
+# Benchmarking shmem_put128 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7028           10185            7378.67                     13.98
+           16          1000            7059           78873            7987.29                     12.91
+           32          1000            7166           10348            8159.77                     25.28
+
+#---------------------------------------------------
+# Benchmarking shmem_short_iput 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11394           86978           12315.50                      4.19
+           16          1000           17155           95285           18561.20                      5.56
+           32          1000           28705          104040           30186.19                      6.83
+
+#---------------------------------------------------
+# Benchmarking shmem_int_iput 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7668           80168            9591.01                      5.38
+           16          1000            7930           39144           10195.63                     10.12
+           32          1000            8580           38681           11090.62                     18.60
+
+#---------------------------------------------------
+# Benchmarking shmem_long_iput 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7506           15486            8900.12                      5.80
+           16          1000            7707           13554            9071.74                     11.37
+           32          1000            8032           44019            9990.33                     20.65
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_iput 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7499           13338            8087.23                      6.38
+           16          1000            7668           36633            8301.41                     12.43
+           32          1000            8078           19087            9847.12                     20.95
+
+#---------------------------------------------------
+# Benchmarking shmem_float_iput 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7660           22384            8738.16                      5.90
+           16          1000            7969           33081            9580.58                     10.77
+           32          1000            8624           27803           10559.59                     19.54
+
+#---------------------------------------------------
+# Benchmarking shmem_double_iput 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7483           12096            8693.95                      5.93
+           16          1000            7670           79666            8866.91                     11.63
+           32          1000            8071           32816            9416.34                     21.91
+
+#---------------------------------------------------
+# Benchmarking shmem_longdouble_iput 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7543           23617            8327.83                     12.39
+           16          1000            7506           18669            8253.63                     12.50
+           32          1000            7824           27657            9117.93                     22.63
+
+#---------------------------------------------------
+# Benchmarking shmem_iput32 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7616           21776            8553.61                      6.03
+           16          1000            7954           32283            9204.12                     11.21
+           32          1000            8549           13934           10287.99                     20.05
+
+#---------------------------------------------------
+# Benchmarking shmem_iput64 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7538           22649            8315.60                      6.20
+           16          1000            7691           11284            8939.95                     11.54
+           32          1000            8039           13903            9706.60                     21.25
+
+#---------------------------------------------------
+# Benchmarking shmem_iput128 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            7522           24386            8019.92                     12.86
+           16          1000            7514           85587            8769.43                     11.76
+           32          1000            7863           87329            9629.05                     21.43
+
+#---------------------------------------------------
+# Benchmarking shmem_short_g 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           45023          155318           49053.58                      1.05
+           16          1000           90233          126223           98459.34                      1.05
+           32          1000          180243          261867          189093.11                      1.09
+
+#---------------------------------------------------
+# Benchmarking shmem_int_g 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           21529           41848           22042.95                      2.34
+           16          1000           42969          126385           45039.70                      2.29
+           32          1000           85992          165050           92172.05                      2.24
+
+#---------------------------------------------------
+# Benchmarking shmem_long_g 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10827           24103           11747.89                      4.39
+           16          1000           21604           41183           23135.45                      4.46
+           32          1000           42974           65629           45391.31                      4.55
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_g 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10796           38887           11955.14                      4.31
+           16          1000           21544           37384           22797.25                      4.52
+           32          1000           43060          129468           48180.94                      4.28
+
+#---------------------------------------------------
+# Benchmarking shmem_float_g 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           21666           49937           24232.61                      2.13
+           16          1000           43008          125235           48287.96                      2.14
+           32          1000           87077          108655           94952.03                      2.17
+
+#---------------------------------------------------
+# Benchmarking shmem_double_g 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10822           50007           11877.72                      4.34
+           16          1000           21529           30832           23776.41                      4.34
+           32          1000           43052           66401           46588.44                      4.43
+
+#---------------------------------------------------
+# Benchmarking shmem_longdouble_g 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10861           81661           12175.86                      8.47
+           16          1000           10866           30452           12096.35                      8.53
+           32          1000           21568           44929           24100.16                      8.56
+
+#---------------------------------------------------
+# Benchmarking shmem_short_get 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10983           48507           12374.12                      4.17
+           16          1000           11006           24155           12872.94                      8.01
+           32          1000           10991           33905           12572.88                     16.41
+
+#---------------------------------------------------
+# Benchmarking shmem_int_get 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11430           17564           12630.86                      4.08
+           16          1000           10996           34586           12840.67                      8.03
+           32          1000           10889           24519           12271.19                     16.81
+
+#---------------------------------------------------
+# Benchmarking shmem_long_get 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10959           29810           11971.77                      4.31
+           16          1000           10928           89934           11915.27                      8.66
+           32          1000           10822           19410           11208.21                     18.41
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_get 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10915           30405           11515.32                      4.48
+           16          1000           10975           36061           12006.43                      8.59
+           32          1000           10866           28182           11824.06                     17.45
+
+#---------------------------------------------------
+# Benchmarking shmem_float_get 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10923           30730           11822.15                      4.36
+           16          1000           10936           33195           11703.41                      8.81
+           32          1000           10814           14909           11861.61                     17.39
+
+#---------------------------------------------------
+# Benchmarking shmem_double_get 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10952           24714           12695.08                      4.06
+           16          1000           11006           29339           12754.35                      8.09
+           32          1000           10858           87800           12469.32                     16.55
+
+#---------------------------------------------------
+# Benchmarking shmem_longdouble_get 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10790           37428           12136.66                      8.50
+           16          1000           10798           20239           11566.55                      8.92
+           32          1000           10803           83788           11970.91                     17.23
+
+#---------------------------------------------------
+# Benchmarking shmem_get32 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10850          112693           11543.51                      4.47
+           16          1000           10889           31131           12242.96                      8.43
+           32          1000           10858           29191           12017.40                     17.17
+
+#---------------------------------------------------
+# Benchmarking shmem_get64 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10944           34979           12536.99                      4.11
+           16          1000           10936           36633           12439.74                      8.29
+           32          1000           10837           25044           12006.43                     17.18
+
+#---------------------------------------------------
+# Benchmarking shmem_get128 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10936           36609           12192.21                      8.46
+           16          1000           10783           29147           12048.27                      8.56
+           32          1000           10798           16412           11622.43                     17.75
+
+#---------------------------------------------------
+# Benchmarking shmem_short_iget 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           44792          120337           49978.72                      1.03
+           16          1000           89604          163046           99415.70                      1.04
+           32          1000          180435          231134          197901.77                      1.04
+
+#---------------------------------------------------
+# Benchmarking shmem_int_iget 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11966           68047           12852.67                      4.01
+           16          1000           13996           39019           15154.51                      6.81
+           32          1000           18050           45564           19751.45                     10.45
+
+#---------------------------------------------------
+# Benchmarking shmem_long_iget 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10944           33861           12206.70                      4.23
+           16          1000           11979           31201           13439.34                      7.68
+           32          1000           14025           30390           15646.06                     13.19
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_iget 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10991           66988           12384.85                      4.16
+           16          1000           12025           35837           14045.72                      7.34
+           32          1000           14074           23731           15430.09                     13.37
+
+#---------------------------------------------------
+# Benchmarking shmem_float_iget 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11986           22457           12984.79                      3.97
+           16          1000           13947           74172           15003.81                      6.88
+           32          1000           18037           38887           18946.38                     10.89
+
+#---------------------------------------------------
+# Benchmarking shmem_double_iget 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10928           14768           11663.98                      4.42
+           16          1000           11942           50988           13102.48                      7.87
+           32          1000           13957           34524           15156.86                     13.61
+
+#---------------------------------------------------
+# Benchmarking shmem_longdouble_iget 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10967           22517           11814.76                      8.73
+           16          1000           10967           29833           11952.87                      8.63
+           32          1000           12057           40449           13209.44                     15.62
+
+#---------------------------------------------------
+# Benchmarking shmem_iget32 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11927           33271           12929.17                      3.99
+           16          1000           13996           87930           15264.14                      6.76
+           32          1000           17959           49875           19146.61                     10.78
+
+#---------------------------------------------------
+# Benchmarking shmem_iget64 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10905           35442           11809.92                      4.37
+           16          1000           11963           31240           12866.81                      8.02
+           32          1000           14051           40088           15334.91                     13.45
+
+#---------------------------------------------------
+# Benchmarking shmem_iget128 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10991           19813           11992.92                      8.60
+           16          1000           10944           20223           11841.76                      8.71
+           32          1000           11963           30855           13083.53                     15.77
+
+#---------------------------------------------------
+# Benchmarking shmem_short_and_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           26448        13416652           44179.29                      1.17
+           16          1000           26295           45192           30411.33                      3.39
+           32          1000           25988           70883           30572.86                      6.75
+
+#---------------------------------------------------
+# Benchmarking shmem_int_and_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8757           40007           11381.80                      4.53
+           16          1000            6053           30437           13539.76                      7.62
+           32          1000           26781           49929           30692.18                      6.72
+
+#---------------------------------------------------
+# Benchmarking shmem_long_and_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            9670           80748           11096.70                      4.65
+           16          1000            9199           79674           11139.14                      9.26
+           32          1000           26674           46661           29970.74                      6.88
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_and_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            9204           36479           11100.58                      4.65
+           16          1000           10125           22881           11002.24                      9.38
+           32          1000           26750           44295           30185.87                      6.83
+
+#---------------------------------------------------
+# Benchmarking shmem_short_or_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           26302           65213           30803.50                      1.67
+           16          1000           26604           48562           30685.55                      3.36
+           32          1000           26079           56952           31107.32                      6.63
+
+#---------------------------------------------------
+# Benchmarking shmem_int_or_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8702           88535           11225.55                      4.59
+           16          1000            6864           73208           13636.00                      7.56
+           32          1000           26287           53962           31294.37                      6.59
+
+#---------------------------------------------------
+# Benchmarking shmem_long_or_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8354           39199           11117.18                      4.64
+           16          1000           10140           26679           11300.37                      9.13
+           32          1000           26341          104807           30633.17                      6.73
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_or_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8216           83962           11193.87                      4.61
+           16          1000            9839           37636           11301.59                      9.13
+           32          1000           26822           48785           31293.31                      6.59
+
+#---------------------------------------------------
+# Benchmarking shmem_short_xor_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           26063          112641           30628.82                      1.68
+           16          1000           26565           48130           30687.82                      3.36
+           32          1000           26396           54131           31268.09                      6.60
+
+#---------------------------------------------------
+# Benchmarking shmem_int_xor_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10117           39948           11244.69                      4.59
+           16          1000           11378           34022           13661.72                      7.55
+           32          1000           26760          104094           31110.93                      6.63
+
+#---------------------------------------------------
+# Benchmarking shmem_long_xor_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10034           38008           11220.08                      4.60
+           16          1000           10148           26599           11472.48                      8.99
+           32          1000           26737           46466           31428.00                      6.56
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_xor_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8279           37961           11594.66                      4.45
+           16          1000            9808           14384           10634.08                      9.70
+           32          1000           26666           48190           30484.03                      6.77
+
+#---------------------------------------------------
+# Benchmarking shmem_short_min_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           26040           63086           30118.21                      1.71
+           16          1000           25949           56079           29827.27                      3.46
+           32          1000           26781           48699           30572.78                      6.75
+
+#---------------------------------------------------
+# Benchmarking shmem_int_min_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            5751           40881           13475.26                      3.83
+           16          1000            5697           87948           13571.99                      7.60
+           32          1000           25647           49851           29223.86                      7.06
+
+#---------------------------------------------------
+# Benchmarking shmem_long_min_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8169           38694           11021.77                      4.68
+           16          1000            6131           22309           13368.33                      7.72
+           32          1000           26713           88359           30353.35                      6.80
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_min_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            9862           23962           11255.74                      4.58
+           16          1000           11355           37080           13306.67                      7.75
+           32          1000           26713           57246           30838.33                      6.69
+
+#---------------------------------------------------
+# Benchmarking shmem_short_max_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           26695           55098           31079.24                      1.66
+           16          1000           26737           51489           31394.25                      3.29
+           32          1000           26913           49311           31779.23                      6.49
+
+#---------------------------------------------------
+# Benchmarking shmem_int_max_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8224           41331           13666.20                      3.77
+           16          1000            6570           39129           13585.80                      7.59
+           32          1000           26807           64895           31960.29                      6.46
+
+#---------------------------------------------------
+# Benchmarking shmem_long_max_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            9529           37805           10985.39                      4.70
+           16          1000            5767           28728           13572.71                      7.60
+           32          1000           26620           48182           30067.43                      6.86
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_max_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            9839           24966           11010.22                      4.68
+           16          1000           11552           32075           13650.08                      7.56
+           32          1000           26573           48915           31280.60                      6.60
+
+#---------------------------------------------------
+# Benchmarking shmem_short_sum_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           26783           57548           31825.49                      1.62
+           16          1000           26859           50871           31780.55                      3.25
+           32          1000           27007           53900           32091.85                      6.43
+
+#---------------------------------------------------
+# Benchmarking shmem_int_sum_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10224           38902           11732.28                      4.40
+           16          1000           11560           29339           13836.72                      7.46
+           32          1000           26898           50447           32024.87                      6.44
+
+#---------------------------------------------------
+# Benchmarking shmem_long_sum_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10010           39924           11419.54                      4.52
+           16          1000           10148           19937           11482.39                      8.98
+           32          1000           26796           48754           31539.46                      6.54
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_sum_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            8804           30444           10862.58                      4.75
+           16          1000           10094           21929           11106.93                      9.29
+           32          1000           26596           44799           30398.51                      6.79
+
+#---------------------------------------------------
+# Benchmarking shmem_short_prod_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           26560          108772           31273.09                      1.65
+           16          1000           26581          109456           31207.33                      3.31
+           32          1000           26466           47688           31586.23                      6.53
+
+#---------------------------------------------------
+# Benchmarking shmem_int_prod_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            5889           42017           13583.38                      3.80
+           16          1000            5991           25499           13653.31                      7.56
+           32          1000           26596           48934           31274.74                      6.60
+
+#---------------------------------------------------
+# Benchmarking shmem_long_prod_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            6339           39909           13718.20                      3.76
+           16          1000            6323           24789           13699.85                      7.53
+           32          1000           27654           51003           32400.80                      6.37
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_prod_to_all 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            6300           37212           13825.07                      3.73
+           16          1000            6092           30065           13719.70                      7.52
+           32          1000           27121           51003           32708.19                      6.31
+
+#---------------------------------------------------
+# Benchmarking shmem_broadcast32 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10419          103447           12067.00                      4.27
+           16          1000           11849           30637           14027.43                      7.35
+           32          1000           15980           78060           19909.14                     10.36
+
+#---------------------------------------------------
+# Benchmarking shmem_broadcast64 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            9462           42722           11733.83                      4.40
+           16          1000           10465           25190           11773.05                      8.76
+           32          1000           16006           45317           19141.43                     10.78
+
+#---------------------------------------------------
+# Benchmarking shmem_collect32 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           44467          155365           49229.49                      2.10
+           16          1000           44474          121013           49020.90                      4.21
+           32          1000           44638          121361           48014.84                      8.59
+
+#---------------------------------------------------
+# Benchmarking shmem_collect64 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           44396           92066           49395.75                      4.18
+           16          1000           44714           82880           50042.39                      8.25
+           32          1000           44831           84110           49151.80                     16.79
+
+#---------------------------------------------------
+# Benchmarking shmem_fcollect32 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           16791           50091           18545.17                      5.56
+           16          1000           17116           50886           19004.53                     10.86
+           32          1000           16994           47202           18988.00                     21.73
+
+#---------------------------------------------------
+# Benchmarking shmem_fcollect64 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           17085           49688           18578.32                     11.10
+           16          1000           17241           47974           18139.47                     22.75
+           32          1000           17410           71190           18792.80                     43.91
+
+#---------------------------------------------------
+# Benchmarking shmem_int_swap 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           22015           98834           24461.66                      2.11
+           16          1000           43832          121954           47948.20                      2.15
+           32          1000           87664          125950           94030.38                      2.19
+
+#---------------------------------------------------
+# Benchmarking shmem_swap 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11061           31032           12200.55                      4.23
+           16          1000           22153           41601           24680.56                      4.18
+           32          1000           44012           64469           45805.90                      4.50
+
+#---------------------------------------------------
+# Benchmarking shmem_long_swap 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11074           33463           12533.54                      4.12
+           16          1000           22062          121031           23775.80                      4.34
+           32          1000           44149           59209           47585.04                      4.34
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_swap 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11076           82144           12057.24                      4.28
+           16          1000           22085          104879           24810.44                      4.16
+           32          1000           44233          121250           49050.34                      4.21
+
+#---------------------------------------------------
+# Benchmarking shmem_float_swap 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           22015           39646           24308.97                      2.12
+           16          1000           44144           68216           48769.62                      2.12
+           32          1000           88543          153402           97110.82                      2.12
+
+#---------------------------------------------------
+# Benchmarking shmem_double_swap 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11084           31315           12343.86                      4.18
+           16          1000           22015           42821           23865.25                      4.32
+           32          1000           44082           68728           47576.49                      4.34
+
+#---------------------------------------------------
+# Benchmarking shmem_int_cswap 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           22116           56310           24839.02                      2.08
+           16          1000           44326          133249           49711.36                      2.08
+           32          1000           88907          122375           97364.69                      2.12
+
+#---------------------------------------------------
+# Benchmarking shmem_long_cswap 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11154           32075           12605.45                      4.09
+           16          1000           22140           44243           23739.41                      4.35
+           32          1000           44251           79154           46653.92                      4.42
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_cswap 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11105           21399           12217.82                      4.22
+           16          1000           22179          101832           24080.26                      4.28
+           32          1000           44389           70876           48312.56                      4.27
+
+#---------------------------------------------------
+# Benchmarking shmem_int_fadd 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           21976           49805           23422.93                      2.20
+           16          1000           44025           69404           46761.65                      2.21
+           32          1000           88104          114773           94041.21                      2.19
+
+#---------------------------------------------------
+# Benchmarking shmem_long_fadd 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11030           30476           11840.48                      4.36
+           16          1000           22179           43424           23564.22                      4.38
+           32          1000           44121           66988           47865.79                      4.31
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_fadd 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11121           28806           12308.48                      4.19
+           16          1000           22077          104799           24449.15                      4.22
+           32          1000           44196           75031           48203.67                      4.28
+
+#---------------------------------------------------
+# Benchmarking shmem_int_finc 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           21976           46461           23762.55                      2.17
+           16          1000           43811           61435           47147.38                      2.19
+           32          1000           87477          111395           94912.13                      2.17
+
+#---------------------------------------------------
+# Benchmarking shmem_long_finc 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           10975           27176           12025.42                      4.29
+           16          1000           22007           35837           24494.25                      4.21
+           32          1000           43856           65080           48284.62                      4.27
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_finc 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           16638           40062           24423.05                      2.11
+           16          1000           43806          121681           48348.95                      2.13
+           32          1000           83499          145214           97344.92                      2.12
+
+#---------------------------------------------------
+# Benchmarking shmem_int_add 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            2941           39035            3040.89                     16.96
+           16          1000            5304            7777            5403.62                     19.09
+           32          1000           10003           32608           10156.00                     20.31
+
+#---------------------------------------------------
+# Benchmarking shmem_long_add 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            1729            6994            1792.76                     28.77
+           16          1000            2909            5057            2971.52                     34.71
+           32          1000            5289            7800            5364.56                     38.46
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_add 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           11037           29332           12239.16                      4.21
+           16          1000           33265           57865           35881.35                      2.87
+           32          1000           77495          112001           81153.08                      2.54
+
+#---------------------------------------------------
+# Benchmarking shmem_int_inc 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            2925           18762            3009.28                     17.14
+           16          1000            5328            7158            5396.90                     19.11
+           32          1000            9987           32956           10112.14                     20.40
+
+#---------------------------------------------------
+# Benchmarking shmem_long_inc 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            1750            4392            1787.98                     28.85
+           16          1000            2902            4995            2972.21                     34.71
+           32          1000            5281            9376            5362.94                     38.47
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_inc 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000           17904           41622           23342.52                      2.21
+           16          1000           40897           71986           47906.16                      2.15
+           32          1000           85444          181696           93765.30                      2.20
+Application 3886882 resources: utime ~4s, stime ~0s, Rss ~14480, inblocks ~14161, outblocks ~38094

@@ -1,0 +1,53 @@
+#!/bin/bash
+# File name: run_s32_64node.pbs
+#PBS -A csc040
+#PBS -M e6d@ornl.gov
+#PBS -l walltime=6:00:00
+#PBS -l nodes=64
+
+cd $PROJWORK/csc040/dazevedo/graph500_openshmem/mpi
+mkdir s32_64node_$PBS_JOBID
+cd s32_64node_$PBS_JOBID
+
+unset SHORT_VALIDATION
+
+export OMP_NUM_THREADS=1
+export XT_SYMMETRIC_HEAP_SIZE=1400M
+
+export SHMEM_SYMMETRIC_HEAP_SIZE=1400000000
+export OMP_NUM_THREADS=1
+export OMP_STACKSIZE=4M
+unset TMPFILE
+unset REUSEFILE
+# export TMPFILE='/tmp/tmpfile'
+# export REUSEFILE=0
+export VERBOSE=1
+
+# ----------
+unset SHORT_VALIDATION
+export SKIP_VALIDATION=1
+# ----------
+
+export XT_SYMMETRIC_HEAP_SIZE=1000M
+aprun -n 1024 -d 1 ../graph500_shmem_one_sided 32 16 >& cray_s32.p1024.skip
+
+export XT_SYMMETRIC_HEAP_SIZE=2000M
+aprun -n 512 -d 2 ../graph500_shmem_one_sided 32 16 >& cray_s32.p512.skip
+
+export XT_SYMMETRIC_HEAP_SIZE=4000M
+aprun -n 256 -d 4 ../graph500_shmem_one_sided 32 16 >& cray_s32.p256.skip
+
+export XT_SYMMETRIC_HEAP_SIZE=8000M
+aprun -n 128 -d 8 ../graph500_shmem_one_sided 32 16 >& cray_s32.p128.skip
+
+export XT_SYMMETRIC_HEAP_SIZE=1600M
+aprun -n 64 -d 1 ../graph500_shmem_one_sided 32 16 >& cray_s32.p64.skip
+
+
+aprun -n 1024 -d 1 ../graph500_mpi_simple 32 16 >& simple_s32.p1024.skip
+aprun -n 512 -d 2 ../graph500_mpi_simple 32 16 >& simple_s32.p512.skip
+aprun -n 256 -d 4 ../graph500_mpi_simple 32 16 >& simple_s32.p256.skip
+aprun -n 128 -d 8 ../graph500_mpi_simple 32 16 >& simple_s32.p128.skip
+aprun -n 64 -d 16 ../graph500_mpi_simple 32 16 >& simple_s32.p64.skip
+
+

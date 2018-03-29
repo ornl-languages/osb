@@ -1,0 +1,117 @@
+Using OpenSHMEM version 1.3
+Using OpenSHMEM version 1.3
+Will be running with 17 different tests
+Will be running with 1 different size configurations
+Running tests
+
+#---------------------------------------------------
+# Benchmarking shmalloc 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000          399999          552280          404336.07                       N/A
+
+#---------------------------------------------------
+# Benchmarking shfree 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+            8          1000            9977           28182           11145.87                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_wait 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000           10489           44490           13398.41                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_short_wait 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000           10575           28962           13358.09                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_int_wait 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000           11144           36848           13595.45                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_long_wait 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000           10728           40473           13390.15                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_wait 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000           11105           29763           13416.39                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_wait_until 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000           11011           90043           13683.65                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_short_wait_until 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000           10819           88962           14181.11                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_int_wait_until 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000            9761           31958           13923.88                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_long_wait_until 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000            9623           36076           13633.92                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_longlong_wait_until 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000            9662           89206           13983.48                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_clear_lock 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000               5           41716            5683.42                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_set_lock 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000               5           23723            5597.53                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_test_lock 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+          N/A          1000               5           20894            5521.68                       N/A
+
+#---------------------------------------------------
+# Benchmarking shmem_init 
+# #processes = 2
+#---------------------------------------------------
+       #bytes  #repetitions     t_min[nsec]     t_max[nsec]       t_avg[nsec]      Bw_aggregated[MB/sec]
+Application 3886883 resources: utime ~2s, stime ~0s, Rss ~14516, inblocks ~14143, outblocks ~37980

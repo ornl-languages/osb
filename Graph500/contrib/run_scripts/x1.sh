@@ -1,0 +1,1 @@
+oshcc -c -g -std=c99   -Impi -Igenerator -I. -DUSE_OPENSHMEM -I./generator -I./mpi -DUSE_OPENSHMEM -fopenmp -DUSE_MMAP_LARGE -DUSE_MMAP_LARGE_EXT  -I./generator   make-edgelist-ornl.c options.c rmat.c kronecker.c prng.c xalloc.c timer.c generator/generator_test_shmem.c generator/make_graph.c generator/graph_generator.c generator/utils.c mpi/shmem_lib.c  -lm -lrt 

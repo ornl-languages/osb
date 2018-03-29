@@ -1,0 +1,6 @@
+file graph500_shmem_one_sided
+break start_pes
+break MPI_File_open
+break MPI_File_close
+break generate_kronecker_range
+break MPI_File_sync

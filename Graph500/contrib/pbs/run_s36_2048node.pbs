@@ -1,0 +1,81 @@
+#!/bin/bash
+# File name: run_s36_2048node.pbs
+#PBS -A csc040
+#PBS -M e6d@ornl.gov
+#PBS -l walltime=6:00:00
+#PBS -l nodes=2048
+
+cd $PROJWORK/csc040/dazevedo/graph500_openshmem/mpi
+mkdir s36_2048node_$PBS_JOBID
+cd s36_2048node_$PBS_JOBID
+
+export SHORT_VALIDATION=1
+
+export OMP_NUM_THREADS=1
+export XT_SYMMETRIC_HEAP_SIZE=1436M
+
+export SHMEM_SYMMETRIC_HEAP_SIZE=1436000000
+export OMP_NUM_THREADS=1
+export OMP_STACKSIZE=4M
+unset TMPFILE
+unset REUSEFILE
+# export TMPFILE='/tmp/tmpfile'
+# export REUSEFILE=0
+export VERBOSE=1
+
+# ---------------------
+unset SHORT_VALIDATION
+export SKIP_VALIDATION=1
+# ---------------------
+
+export XT_SYMMETRIC_HEAP_SIZE=1436M
+aprun -n 32768 -d 1 ../graph500_shmem_one_sided 36 16 >& cray_s36.p32768.skip
+aprun -n 32768 -d 1 ../graph500_mpi_simple 36 16 >& simple_s36.p32768.skip
+
+
+export XT_SYMMETRIC_HEAP_SIZE=2872M
+aprun -n 16384 -d 2 ../graph500_shmem_one_sided 36 16 >& cray_s36.p16384.skip
+aprun -n 16384 -d 2 ../graph500_mpi_simple 36 16 >& simple_s36.p16384.skip
+
+export XT_SYMMETRIC_HEAP_SIZE=5744M
+aprun -n 8192 -d 4 ../graph500_shmem_one_sided 36 16 >& cray_s36.p8192.skip
+aprun -n 8192 -d 4 ../graph500_mpi_simple 36 16 >& simple_s36.p8192.skip
+
+
+export XT_SYMMETRIC_HEAP_SIZE=11488M
+aprun -n 4096 -d 8 ../graph500_shmem_one_sided 36 16 >& cray_s36.p4096.skip
+aprun -n 4096 -d 8 ../graph500_mpi_simple 36 16 >& simple_s36.p4096.skip
+
+
+export XT_SYMMETRIC_HEAP_SIZE=22976M
+aprun -n 2048 -d 16 ../graph500_shmem_one_sided 36 16 >& cray_s36.p2048.skip
+aprun -n 2048 -d 16 ../graph500_mpi_simple 36 16 >& simple_s36.p2048.skip
+
+
+# ---------------------
+export SHORT_VALIDATION=1
+unset SKIP_VALIDATION
+# ---------------------
+
+export XT_SYMMETRIC_HEAP_SIZE=1436M
+aprun -n 32768 -d 1 ../graph500_shmem_one_sided 36 16 >& cray_s36.p32768.teps
+aprun -n 32768 -d 1 ../graph500_mpi_simple 36 16 >& simple_s36.p32768.teps
+
+
+export XT_SYMMETRIC_HEAP_SIZE=2872M
+aprun -n 16384 -d 2 ../graph500_shmem_one_sided 36 16 >& cray_s36.p16384.teps
+aprun -n 16384 -d 2 ../graph500_mpi_simple 36 16 >& simple_s36.p16384.teps
+
+export XT_SYMMETRIC_HEAP_SIZE=5744M
+aprun -n 8192 -d 4 ../graph500_shmem_one_sided 36 16 >& cray_s36.p8192.teps
+aprun -n 8192 -d 4 ../graph500_mpi_simple 36 16 >& simple_s36.p8192.teps
+
+
+export XT_SYMMETRIC_HEAP_SIZE=11488M
+aprun -n 4096 -d 8 ../graph500_shmem_one_sided 36 16 >& cray_s36.p4096.teps
+aprun -n 4096 -d 8 ../graph500_mpi_simple 36 16 >& simple_s36.p4096.teps
+
+
+export XT_SYMMETRIC_HEAP_SIZE=22976M
+aprun -n 2048 -d 16 ../graph500_shmem_one_sided 36 16 >& cray_s36.p2048.teps
+aprun -n 2048 -d 16 ../graph500_mpi_simple 36 16 >& simple_s36.p2048.teps

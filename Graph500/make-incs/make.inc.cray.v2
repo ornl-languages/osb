@@ -1,0 +1,8 @@
+# CFLAGS = -fopenmp -g -Wall -Drestrict=__restrict__ -O3 -DNDEBUG -ffast-math -DGRAPH_GENERATOR_MPI # -g -pg
+#CFLAGS =  -fopenmp -g -fbounds-check -Wall -Wno-pragmas -Drestrict=__restrict__ -O3 -UNDEBUG -ffast-math -DGRAPH_GENERATOR_MPI # -g -pg
+CFLAGS =  -UUSE_CLOCK -UUSE_MPI_WTIME -UUSE_DEBUG -UUSE_DEBUG2 -O3 -h omp  -UNDEBUG  -DGRAPH_GENERATOR_MPI  -I. -I../mpi -I.. -I../generator -I/usr/include -UUSE_DEBUG3
+# CFLAGS = -g -Wall -Drestrict= -DGRAPH_GENERATOR_MPI
+# LDFLAGS = -Bstatic -fopenmp -g # -g -pg
+LDFLAGS = 
+MPICC = cc
+OSHCC = cc -DUSE_OPENSHMEM  -UNDEBUG

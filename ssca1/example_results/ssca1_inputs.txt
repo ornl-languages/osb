@@ -1,0 +1,7 @@
+ssca1-n2-t1.txt
+ssca1-n2-t2.txt
+ssca1-n2-t4.txt
+ssca1-n2-t8.txt
+ssca1-n2-t16.txt
+ssca1-n2-t20.txt
+ssca1-n2-t40.txt

@@ -1,0 +1,9 @@
+Compilers:
+SHOMS has been test with the Cray compiler using the PGI programming enviornment and GCC with SHMEM-X
+
+Building:
+SHOMS can be built in an OpenSHMEM enviornment by just typing `make`. There are no external dependencies.
+If the OpenSHMEM compiler is not oshcc, the Makefile can be edited to refer to your system's OpenSHMEM compiler.
+
+Install:
+The shoms binary will be located at bin/shoms

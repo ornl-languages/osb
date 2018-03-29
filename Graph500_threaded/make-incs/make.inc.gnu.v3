@@ -1,0 +1,7 @@
+INCLUDE_DIR = /ccs/home/wa9/turing-build/install.openshmem-vanilla/include #/path/to/dir
+LIB_DIR = /ccs/home/wa9/turing-build/install.openshmem-vanilla/lib # /path/to/dir
+CFLAGS =  -UUSE_DEBUG -fopenmp -g -fbounds-check    -Wpedantic -Wall -Wextra -Wno-missing-field-initializers   -Wno-unused-parameter -Drestrict=__restrict__ -I${INCLUDE_DIR}  -UNDEBUG -ffast-math -DGRAPH_GENERATOR_MPI   -fno-omit-frame-pointer  #-g -pg
+LDFLAGS = -fopenmp -Bstatic -g -L${LIB_DIR} -lelf -lmpi -ldl  # -g -pg
+OSHCC = oshcc -DUSE_OPENSHMEM -I. -I../mpi -I..
+MPICC = mpicc
+CC = $(MPICC)

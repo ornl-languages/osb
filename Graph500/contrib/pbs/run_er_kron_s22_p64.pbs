@@ -1,0 +1,47 @@
+#!/bin/bash
+# File name: run_er_kron_s22_p64.pbs
+#PBS -A csc040
+#PBS -l walltime=2:00:00
+#PBS -l nodes=64
+
+cd $PROJWORK/csc040/dazevedo/graph500_openshmem/mpi
+mkdir er_s22_p64_$PBS_JOBID
+cd er_s22_p64_$PBS_JOBID
+
+
+export OMP_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+export OMP_STACKSIZE=4M
+unset TMPFILE
+unset REUSEFILE
+# export TMPFILE='/tmp/tmpfile'
+# export REUSEFILE=0
+export VERBOSE=1
+export SHORT_VALIDATION=1
+
+export XT_SYMMETRIC_HEAP_SIZE=1G
+export SHMEM_SYMMETRIC_HEAP_SIZE=1000000000
+aprun -n 1024 -N 16  ../graph500_shmem_one_sided 22 16 >& cray_s22.p1024
+aprun -n 1024 -N 16  ../graph500_shmem_one_sided_er 22 16 >& er_s22.p1024
+
+export XT_SYMMETRIC_HEAP_SIZE=2G
+export SHMEM_SYMMETRIC_HEAP_SIZE=2000000000
+aprun -n 512 -N 8  ../graph500_shmem_one_sided 22 16 >& cray_s22.p512
+aprun -n 512 -N 8  ../graph500_shmem_one_sided_er 22 16 >& er_s22.p512
+
+
+export XT_SYMMETRIC_HEAP_SIZE=4G
+export SHMEM_SYMMETRIC_HEAP_SIZE=4000000000
+aprun -n 256 -N 4  ../graph500_shmem_one_sided 22 16 >& cray_s22.p256
+aprun -n 256 -N 4  ../graph500_shmem_one_sided_er 22 16 >& er_s22.p256
+
+export XT_SYMMETRIC_HEAP_SIZE=6G
+export SHMEM_SYMMETRIC_HEAP_SIZE=6000000000
+aprun -n 128 -N 2  ../graph500_shmem_one_sided 22 16 >& cray_s22.p128
+aprun -n 128 -N 2  ../graph500_shmem_one_sided_er 22 16 >& er_s22.p128
+
+export XT_SYMMETRIC_HEAP_SIZE=12G
+export SHMEM_SYMMETRIC_HEAP_SIZE=12000000000
+aprun -n 64 -N 1  ../graph500_shmem_one_sided 22 16 >& cray_s22.p64
+aprun -n 64 -N 1  ../graph500_shmem_one_sided_er 22 16 >& er_s22.p64
+

@@ -1,0 +1,7 @@
+#CFLAGS =  -Drestrict= -UUSE_DEBUG -fopenmp -O3      -UNDEBUG -ffast-math -DGRAPH_GENERATOR_MPI   
+CFLAGS =  -UUSE_CLOCK -DUSE_MPI_WTIME -Drestrict= -UUSE_DEBUG -fopenmp -O3      -UNDEBUG -ffast-math -DGRAPH_GENERATOR_MPI  -UCHUNKSIZE 
+LDFLAGS = -fopenmp -Bstatic  # -g -pg
+OSHCC = gcc  -DUSE_OPENSHMEM -I. -I../mpi -I..  -I/opt/sgi/mpt/mpt-2.03/include -I/opt/sgi/mpt/mpt-2.03/include/mpp -L/opt/sgi/mpt/mpt-2.03/lib -lm -lsma -lmpi 
+# MPICC = oshcc -UUSE_OPENSHMEM -I. -I../mpi -I..
+MPICC=gcc -Drestrict= -UUSE_OPENSHMEM -I. -I../mpi -I..  -I/opt/sgi/mpt/mpt-2.03/include -L/opt/sgi/mpt/mpt-2.03/lib -lm -lsma -lmpi 
+CC = $(MPICC)

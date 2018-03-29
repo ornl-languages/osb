@@ -1,0 +1,75 @@
+SHOMS: The OpenSHMEM micro benchmarking suite.
+
+This intent of this benchmarking suite is to test the functions defined
+in the OpenSHMEM spec (currently 1.1) for speed. What this benchmark
+does not do is test correctness or reliability.
+
+BUILDING:
+
+If building using an OpenSHMEM style build system with oshcc no changes
+are needed. Just type 'make -j 5' and all of the sources will be assembled
+into bin/shoms. Tweaking CFLAGS is a low value exercise since
+SHOMS is a network benchmark rather than a code benchmark. If working with
+a different build systemm (e.g. Cray) then change the OSHCC variable
+to the compiler that is used to build OpenSHMEM code (e.g. OSHCC=cc on
+Cray).
+
+RUNNING:
+
+For all tests, SHOMS runs N iterations of M sized messages for each tested
+function. The number of iterations is automatically derived based on
+the size of the message. For point to point functions (e.g. shmem_put()
+shmem_get()) Node 0 will send an M sized messages to nodes 1-X in each
+iteration. For collective functions node 0 will be the root and all nodes
+will participate in the collective with M sized data on each node. For
+functions where the end result is not to transmit user data (shmem_barrier())
+then shoms will still do N iterations for each size listed and will
+record latencies, but not bandwidth.
+
+Use your runtime's launcher to start the job. Helpful flags for shoms are
+described below:
+
+  --off_cache: Shifts the data in the symetric heap in an effort to disable
+               the effects of caches on the CPU.
+
+  --warmup:    Do N/10 untimed iterations before doing N iterations in the
+               main loop. Warms up hardware/caches.
+
+  --msglen:    Points to a file with a set of message lengths. Put one
+               number per line in the file and it will use N bytes per
+               message for each line in the file.
+
+  --minsize:   Starts tests a N bytes. Scales up by N*2 bytes on each
+               iteration until it goes above maxsize.
+               Default minsize is 8.
+
+  --maxsize:   Ends when N*2 is greater than maxsize.
+               Default maxsize is 16777216
+
+  --time:      Soft limit of N seconds for each iteration. This will not
+               interrupt network operations.
+
+  --output:    File to write results to. Default stdout. Will truncate
+               existing files.
+
+  --input:     File that lists tests to perform. By default SHOMS will run
+               all tests available. List one test per line.
+
+  --affinity:  Run affinity test mode. Described below
+
+
+AFFINITY TESTS:
+
+SHOMS can run its tests across different cores across two nodes. This
+can be helpful to see if a particular core will be favored in terms of
+OpenSHMEM performance. This will take a very long time if your node has
+a lot of cores. By default it uses a subset of tests including all of
+the int point to point routines and shmalloc/shfree/shmem_barrier_all().
+
+KNOWN ISSUES:
+
+On recent Cray systems shmem_swap has been removed from the SHMEM library
+in non-C11 modes. This means that the SHOMS build will fail at link time
+using the default options with cray-shmem over 7.3.3. The simplest fix for
+this is to change the -std=c99 flag in the Makefile to -std=c11. Please 
+note this does not mean that SHOMS has not been vetted for c11 compliance.

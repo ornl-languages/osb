@@ -1,0 +1,79 @@
+#!/bin/bash
+# File name: run_s20_16node.pbs
+#PBS -A csc040
+#PBS -l walltime=6:00:00
+#PBS -l nodes=16
+
+cd $PROJWORK/csc040/dazevedo/graph500_openshmem/mpi
+mkdir s20_16node_$PBS_JOBID
+cd s20_16node_$PBS_JOBID
+
+
+export OMP_NUM_THREADS=1
+export XT_SYMMETRIC_HEAP_SIZE=1536M
+
+export SHMEM_SYMMETRIC_HEAP_SIZE=1536000000
+export OMP_NUM_THREADS=1
+export OMP_STACKSIZE=4M
+unset TMPFILE
+unset REUSEFILE
+# export TMPFILE='/tmp/tmpfile'
+# export REUSEFILE=0
+export VERBOSE=1
+
+# export SKIP_VALIDATION=1
+# aprun -n 256 -d 1 ../graph500_shmem_one_sided 20 16 >& cray_s20.p256.skip
+# aprun -n 128 -d 2 ../graph500_shmem_one_sided 20 16 >& cray_s20.p128.skip
+# aprun -n 64 -d 4 ../graph500_shmem_one_sided 20 16 >& cray_s20.p64.skip
+# aprun -n 32 -d 8 ../graph500_shmem_one_sided 20 16 >& cray_s20.p32.skip
+# aprun -n 16 -d 16 ../graph500_shmem_one_sided 20 16 >& cray_s20.p16.skip
+# 
+# 
+# aprun -n 256 -d 1 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p256.skip
+# aprun -n 128 -d 2 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p128.skip
+# aprun -n 64 -d 4 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p64.skip
+# aprun -n 32 -d 8 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p32.skip
+# aprun -n 16 -d 16 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p16.skip
+
+
+
+unset SKIP_VALIDATION
+export SHORT_VALIDATION=1
+
+
+
+# aprun -n 256 -d 1 ../graph500_shmem_one_sided 20 16 >& cray_s20.p256.short
+# aprun -n 128 -d 2 ../graph500_shmem_one_sided 20 16 >& cray_s20.p128.short
+# aprun -n 64 -d 4 ../graph500_shmem_one_sided 20 16 >& cray_s20.p64.short
+# aprun -n 32 -d 8 ../graph500_shmem_one_sided 20 16 >& cray_s20.p32.short
+# aprun -n 16 -d 16 ../graph500_shmem_one_sided 20 16 >& cray_s20.p16.short
+
+
+# aprun -n 256 -d 1 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p256.short
+# aprun -n 128 -d 2 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p128.short
+# aprun -n 64 -d 4 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p64.short
+# aprun -n 32 -d 8 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p32.short
+aprun -n 16 -d 16 ../graph500_mpi_one_sided 20 16 >& cray_mpi_s20.p16.short
+
+
+
+
+
+
+
+
+
+
+# aprun -n 16 -d16  ../graph500_shmem_one_sided 20 16 >& cray_s20.p16
+# aprun -n 32 -d8  ../graph500_shmem_one_sided 20 16 >& cray_s20.p32
+# aprun -n 64 -d4  ../graph500_shmem_one_sided 20 16 >& cray_s20.p64
+# aprun -n 128 -d2  ../graph500_shmem_one_sided 20 16 >& cray_s20.p128
+# aprun -n 256 -d1  ../graph500_shmem_one_sided 20 16 >& cray_s20.p256
+
+
+
+# aprun -n 16 -d 16 ../graph500_mpi_one_sided  20 16 >& cray_mpi_s20.p16
+# aprun -n 32 -d 8 ../graph500_mpi_one_sided  20 16 >& cray_mpi_s20.p32
+# aprun -n 64 -d 4 ../graph500_mpi_one_sided  20 16 >& cray_mpi_s20.p64
+# aprun -n 128 -d 2 ../graph500_mpi_one_sided  20 16 >& cray_mpi_s20.p128
+# aprun -n 256 -d 1 ../graph500_mpi_one_sided  20 16 >& cray_mpi_s20.p256
