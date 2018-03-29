@@ -29,8 +29,10 @@
   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# -----------------------------------------------------------------
-This is a modified version of the Ramdom Access Benchmark initially developed by David Koester and Bob Lucas.
+# ---------------------------------------------------
+This is a modified version of the Ramdom Access Benchmark initially developed 
+by David Koester and Bob Lucas.
+
 Basic requirements of the RandomAccess benchmark are:
  (1) size of the table T[ ] being a power of two and approximately half the global memory and with
  (2) look-ahead and storage constraints being followed. Specifically, attempts to improve memory 
