@@ -1,0 +1,11 @@
+1.0: 30 March 2018
+----------------
+
+This is initial public beta release of OSB. 
+The following benchmarks are included in this suite:
+
+1) Graph 500 (Single and Multithreaded)
+2) SSCA1 (Single and Multithreaded)
+3) GUPs (Single, Multithreaded, Contexts)
+4) NAS
+5) SHOMS
