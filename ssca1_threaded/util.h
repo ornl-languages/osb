@@ -56,7 +56,7 @@ static inline void fetch_from_seq_nb(const seq_t *in, index_t const codon_index,
   int target_ep = global_index_to_rank(in,codon_index);
   int local_index = global_index_to_local_index(in,codon_index);
   short *typed_seq = (short *)in->sequence;
-  shmem_short_get_nbi((short *)out, &(typed_seq[local_index]), 1, target_ep, NULL);
+  shmem_short_get_nbi((short *)out, &(typed_seq[local_index]), 1, target_ep);
 }
 
 void distribute_rng_seed(unsigned int new_seed);
