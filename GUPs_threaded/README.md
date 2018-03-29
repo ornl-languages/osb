@@ -30,7 +30,7 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # ---------------------------------------------------
-This is a modified version of the Ramdom Access Benchmark initially developed 
+This is a modified version of the Random Access Benchmark initially developed 
 by David Koester and Bob Lucas.
 
 Basic requirements of the RandomAccess benchmark are:

@@ -10,7 +10,7 @@ If building using an OpenSHMEM style build system with oshcc no changes
 are needed. Just type 'make -j 5' and all of the sources will be assembled
 into bin/shoms. Tweaking CFLAGS is a low value exercise since
 SHOMS is a network benchmark rather than a code benchmark. If working with
-a different build systemm (e.g. Cray) then change the OSHCC variable
+a different build system (e.g. Cray) then change the OSHCC variable
 to the compiler that is used to build OpenSHMEM code (e.g. OSHCC=cc on
 Cray).
 
@@ -29,7 +29,7 @@ record latencies, but not bandwidth.
 Use your runtime's launcher to start the job. Helpful flags for shoms are
 described below:
 
-  --off_cache: Shifts the data in the symetric heap in an effort to disable
+  --off_cache: Shifts the data in the symmetric heap in an effort to disable
                the effects of caches on the CPU.
 
   --warmup:    Do N/10 untimed iterations before doing N iterations in the

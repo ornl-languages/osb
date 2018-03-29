@@ -4,19 +4,19 @@ SSCA1 OVERVIEW
 
 The sequence alignment is the central functionality of genetic analysis and
 many other Bioinformatics applications.  It infers the structural and
-functional relationship between the DNA/RNA or protein sequences, and ﬁnds
+functional relationship between the DNA/RNA or protein sequences, and finds
 similarity between the query and reference sequences.  The sequence matching
 functionality, essentially a pattern matching function, has wider
 applications besides Bioinformatics.  One of the most popular algorithms for
 sequence matching is the Smith-Waterman algorithm, which employs a dynamic
-programming approach to ﬁnd local alignment, which ﬁnds local regions with
+programming approach to find local alignment, which finds local regions with
 high levels of similarity.  Given the importance of this algorithm and its
 wider application, it is included in many benchmark suites including
 Scalable Synthetic Compact Applications 1 (SSCA1) and BioParallel, and is
 used in tools for analyzing next generation sequencing data such as
 SNPTools.
 
-Like many scientiﬁc simulations and workloads, the Smith-Waterman algorithm
+Like many scientific simulations and workloads, the Smith-Waterman algorithm
 execution is constrained by the availability of resources.  The algorithm
 complexity is bounded by O(mn), where m is the length of the main sequence
 and n is the lengths of the match sequence.  Given the importance of the
@@ -35,7 +35,7 @@ The Smith-Waterman algorithm looks for sequence subsets that best match in
 two large sequences.  We ﬁx the length of the main and match sequences to be
 the same, so the algorithm effectively runs in O(n^2) time.
 
-The ﬁrst step is to generate a similarity matrix.  This similarity matrix
+The first step is to generate a similarity matrix.  This similarity matrix
 decides if a pair of codons, a triplet of adjacent DNA nucleotides that code
 for proteins, are either exact matches, similar matches that are distinct
 but serve the same function, or dissimilar matches.  This can be generalized

@@ -23,7 +23,7 @@ SSCA1
 -----
 
 This benchmark is based on the DARPA HPCS benchmark challenge SSCA1. In
-particular, this implments SSCA1 kernel 1. Kernel 2 is also implmented for
+particular, this implements SSCA1 kernel 1. Kernel 2 is also implemented for
 the verification of the output of kernel 1, but is not optimized for
 parallel execution.
 
@@ -58,7 +58,7 @@ as usual. The only runtime option is an environment variable called SCALE.
 SCALE adjusts the size of the inputs. An input of SCALE=22 should run in
 half the time as SCALE=23. The file parameters.c has some compile time
 options for the Smith-Waterman algorithm such as match score and gap
-penelties. Typical benchmarking usage should not modify these.
+penalties. Typical benchmarking usage should not modify these.
 
 After the benchmark runs, the benchmark will display the timings for the
 data generator, kernel 1, and kernel 2. The main kernel of interest is
@@ -67,7 +67,7 @@ also be verification data printed at the end. As long as the verification
 sequences are found and scored correctly the benchmark is functioning
 correctly.
 
-When runnig SSCA1 the results should be similar to the following:
+When running SSCA1 the results should be similar to the following:
 
 -----
   Running with OpenMP, thread count: 1
@@ -96,11 +96,11 @@ When runnig SSCA1 the results should be similar to the following:
                 Penalty to start a gap: 5
        Penalty for each codon in a gap: 2
 
-  Begining Kernel 1 execution.
+  Beginning Kernel 1 execution.
 
       Elapsed time: 0 hour(s), 17 minute(s), 25 second(s), 691 milliseconds,  138 micro second(s).
 
-  Begining Kernel 2 execution.
+  Beginning Kernel 2 execution.
   Could not find sequence 93.
 
       Elapsed time: 0 hour(s), 0 minute(s), 0 second(s), 36 milliseconds,  165 micro second(s).
@@ -160,7 +160,7 @@ the Kernel 2 times are informational only. Kernel 2 verifies the results of
 Kernel 1. The first three results should be, in order, "*IDENTICAL*",
 *MISQRMATCHES*, *STARTGAPMIDST---END*, with scores of 55, 54, and 53
 respectively. If the end result is not these values then the underlaying
-implmentation of OpenSHMEM is faulty. Verifications below these sequences
+implementation of OpenSHMEM is faulty. Verifications below these sequences
 are based on random chance, however they should still be in order by score.
 The sort used to arrange these scores is not stable.
 
