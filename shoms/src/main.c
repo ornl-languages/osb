@@ -24,7 +24,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
-#include <mpp/shmem.h>
+#include <shmem.h>
 #include <shoms.h>
 #include <config.h>
 #include <parameters.h>
@@ -360,6 +360,12 @@ void process_cores(core_t *core, index_t cores_count){
   buffer_from_file_t *cpu_data;
   char path_buffer[1024];
   int return_code = glob("/sys/devices/system/cpu/cpu[0-9]*", GLOB_ONLYDIR, NULL, &glob_results);
+  if (0 != return_code) {
+    fprintf (stderr, "[%s:%d] ERROR: glob() failed (%d)\n",
+             __FILE__, __LINE__, return_code);
+    abort();
+  }
+
 
   for(int idx=0; idx < glob_results.gl_pathc; idx++){
     core[idx].os_id = process_string_to_number((glob_results.gl_pathv[idx])+27);
@@ -383,7 +389,7 @@ void process_cores(core_t *core, index_t cores_count){
 
 void probe_system(comm_t *comms){
   index_t cores_count = get_cores_count();
-  core_t *system_cores = (core_t *)shmalloc(sizeof(core_t)*cores_count);
+  core_t *system_cores = (core_t *)shmem_malloc(sizeof(core_t)*cores_count);
   socket_t *system_sockets;
   node_t *this_node;
   index_t socket_count=0;
@@ -394,7 +400,7 @@ void probe_system(comm_t *comms){
     if(system_cores[idx].socket_id > socket_count) socket_count = system_cores[idx].socket_id;
   }
   socket_count += 1;
-  system_sockets = (socket_t *)shmalloc(sizeof(socket_t)*socket_count);
+  system_sockets = (socket_t *)shmem_malloc(sizeof(socket_t)*socket_count);
   for(int idx=0; idx < socket_count; idx++){
     cores_per_socket=0;
     for(int jdx=0; jdx < cores_count; jdx++){
@@ -414,7 +420,7 @@ void probe_system(comm_t *comms){
     system_sockets[idx].socket_id = idx;
     system_sockets[idx].node_id = MY_PE;
   }
-  this_node = (node_t *)shmalloc(sizeof(node_t));
+  this_node = (node_t *)shmem_malloc(sizeof(node_t));
   this_node->socket = system_sockets;
   this_node->socket_count = socket_count;
   this_node->node_id = MY_PE;
@@ -462,7 +468,7 @@ int main(int argc, char **argv){
   ORB_calibrate();
 
   if(input_parameters.affinity_test != 0){
-    shmem_system = (comm_t *)shmalloc(sizeof(comm_t));
+    shmem_system = (comm_t *)shmem_malloc(sizeof(comm_t));
     probe_system(shmem_system);
   }
 
