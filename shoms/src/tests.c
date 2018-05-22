@@ -41,7 +41,7 @@ static uint64_t shfree_count = 0;
 
 void print_mem_management_stats(parsed_options_t *input_options){
   if(MY_PE == 0){
-    fprintf(input_options->output_file, "\nshmalloc calls: %lu\nshfree calls: %lu\n", shmalloc_count, shfree_count );
+    fprintf(input_options->output_file, "\nshmem_malloc calls: %lu\nshmem_free calls: %lu\n", shmalloc_count, shfree_count );
   }
 }
 
@@ -63,7 +63,7 @@ static inline index_t compute_indexes_per_pe(index_t test_size, index_t alignmen
 
 static void *allocate_distributed_buffer(index_t size, index_t alignment){
   index_t alloc_per_pe = compute_indexes_per_pe(size, alignment);
-  void *allocation = shmalloc(alloc_per_pe*alignment);
+  void *allocation = shmem_malloc(alloc_per_pe*alignment);
   assert(allocation != NULL);
   touch_memory(allocation, size);
 #ifdef DEBUG_ALLOCATIONS
@@ -73,7 +73,7 @@ static void *allocate_distributed_buffer(index_t size, index_t alignment){
 }
 
 void free_distributed_buffer(void *buffer){
-  shfree(buffer);
+  shmem_free(buffer);
 #ifdef DEBUG_ALLOCATIONS
   shfree_count++;
 #endif
@@ -1350,7 +1350,7 @@ void init_shmalloc(void **buffer, index_t size){
 
 index_t test_shmalloc(index_t test_start, index_t test_size, void *buffers, index_t *bytes_transfered){
   buffer_ptr_t *new_buffer = (buffer_ptr_t *)buffers;
-  new_buffer->buffer = shmalloc(test_size);
+  new_buffer->buffer = shmem_malloc(test_size);
 #ifdef DEBUG_ALLOCATIONS
   shmalloc_count++;
 #endif
@@ -1369,7 +1369,7 @@ void cleanup_shmalloc(void *doomed){
 }
 
 index_t test_shfree(index_t test_start, index_t test_size, void *buffers, index_t *bytes_transfered){
-  shfree(buffers);
+  shmem_free(buffers);
   *bytes_transfered=test_size;
 #ifdef DEBUG_ALLOCATIONS
   shfree_count++;
