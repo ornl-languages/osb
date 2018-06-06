@@ -20,8 +20,13 @@ def shred_ssca1_input(file_path):
     if time_array[3] > 500:
         elapsed_seconds += 1
 
-    thread_line = filter(lambda x: thread_filter.match(x), input_lines)[0]
-    thread_count = int(number_filter.search(thread_line).group(0))
+    thread_count = 0
+
+    # Check if run with non-threaded code
+    match = thread_filter.match( str(input_lines) )
+    if match:
+        thread_line = filter(lambda x: thread_filter.match(x), input_lines)[0]
+        thread_count = int(number_filter.search(thread_line).group(0))
 
     return (thread_count, elapsed_seconds)
 
