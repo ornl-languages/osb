@@ -165,9 +165,10 @@ void init_tests(){
   global_test_index[123] = SET_SHOMS_TEST(shmem_clear_lock, init_distributed_long_buffer, free_distributed_buffer, init_per_iteration_shmem_clear_lock, NULL, global_no_bw);
   global_test_index[124] = SET_SHOMS_TEST(shmem_set_lock, init_distributed_long_buffer, free_distributed_buffer, NULL, cleanup_per_iteration_shmem_set_lock, global_no_bw);
   global_test_index[125] = SET_SHOMS_TEST(shmem_test_lock, init_distributed_long_buffer, free_distributed_buffer, NULL, cleanup_per_iteration_shmem_set_lock, global_no_bw);
+  global_test_index[126] = SET_SHOMS_TEST(shmem_barrier_all, NULL, NULL, NULL, NULL, global_no_bw);
 #ifdef USE_SHMEM12
-  global_test_index[126] = SET_SHOMS_TEST(shmem_init, NULL, NULL, init_per_iteration_shmem_init, NULL, global_no_bw);
-  global_test_index[127] = SET_SHOMS_TEST(shmem_finalize, NULL, NULL, NULL, cleanup_per_iteration_shmem_finalize, global_no_bw);
+  global_test_index[127] = SET_SHOMS_TEST(shmem_init, NULL, NULL, init_per_iteration_shmem_init, NULL, global_no_bw);
+  global_test_index[128] = SET_SHOMS_TEST(shmem_finalize, NULL, NULL, NULL, cleanup_per_iteration_shmem_finalize, global_no_bw);
 #endif
 }
 
