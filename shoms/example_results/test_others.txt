@@ -1,5 +1,6 @@
 shmalloc
 shfree
+shmem_barrier_all
 shmem_wait
 shmem_short_wait
 shmem_int_wait

@@ -40,8 +40,8 @@ extern int global_my_pe;
 #define N_PES (global_npes)
 #define MY_PE (global_my_pe)
 
-#define NUM_TESTS ((index_t)128)
-#define MAX_TESTS ((index_t)128)
+#define NUM_TESTS ((index_t)129)
+#define MAX_TESTS ((index_t)129)
 
 void init_tests();
 index_t all_tests(test_t **tests_array);
