@@ -2,6 +2,24 @@
 #include<time.h>
 #include<sys/time.h>
 
+#include <sys/mman.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+
+#define FSTR64 "%ld"
+#define FSTRU64 "%lu"
+#define ZERO64B 0L
+#define SHMEM_BCAST_SYNC_SIZE 64
+#define SHMEM_REDUCE_SYNC_SIZE 128
+
+// Type definitions
+typedef int64_t s64;
+typedef uint64_t u64;
+
 /* Random number generator */
 #ifdef LONG_IS_64BITS
 #define POLY 0x0000000000000007UL
@@ -20,7 +38,7 @@ static double RTSEC()
  return tp.tv_sec + tp.tv_usec/(double)1.0e6;
 }
 
-extern s64Int starts (u64Int);
+extern s64 starts (u64);
 
 #define WANT_MPI2_TEST 0
 
@@ -44,21 +62,21 @@ extern s64Int starts (u64Int);
 #define MAX_RECV					1
 #endif
 
-extern u64Int *HPCC_Table;
+extern u64 *HPCC_Table;
 
-extern u64Int LocalSendBuffer[LOCAL_BUFFER_SIZE];
-extern u64Int LocalRecvBuffer[MAX_RECV*LOCAL_BUFFER_SIZE];
+extern u64 LocalSendBuffer[LOCAL_BUFFER_SIZE];
+extern u64 LocalRecvBuffer[MAX_RECV*LOCAL_BUFFER_SIZE];
 
 extern void
-Power2NodesRandomAccessUpdate(u64Int logTableSize,
-                                 u64Int TableSize,
-                                 u64Int LocalTableSize,
-                                 u64Int MinLocalTableSize,
-                                 u64Int GlobalStartMyProc,
-                                 u64Int Top,
+Power2NodesRandomAccessUpdate(u64 logTableSize,
+                                 u64 TableSize,
+                                 u64 LocalTableSize,
+                                 u64 MinLocalTableSize,
+                                 u64 GlobalStartMyProc,
+                                 u64 Top,
                                  int logNumProcs,
                                  int NumProcs,
                                  int Remainder,
                                  int MyProc,
-                                 s64Int ProcNumUpdates);
+                                 s64 ProcNumUpdates);
 

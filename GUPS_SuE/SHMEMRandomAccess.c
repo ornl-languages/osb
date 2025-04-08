@@ -35,11 +35,16 @@
  */
 
 #include <sched.h>
-#include <hpcc.h>
+//#include <hpcc.h>
 #include <stdio.h>
 #include "RandomAccess.h"
-#include <shmem.h>
+// #include <shmem.h>
 #define MAXTHREADS 256
+
+#include "shmem.c"
+#define _SHMEM_BCAST_SYNC_SIZE SHMEM_BCAST_SYNC_SIZE
+#define _SHMEM_REDUCE_SYNC_SIZE SHMEM_REDUCE_SYNC_SIZE
+#define _SHMEM_SYNC_VALUE 0xdeadbeef
 
 void
 do_abort(char* f)
@@ -47,25 +52,25 @@ do_abort(char* f)
   fprintf(stderr, "%s\n", f);
 }
 
-u64Int srcBuf[] = {
+u64 srcBuf[] = {
   0xb1ffd1da
 };
-u64Int targetBuf[sizeof(srcBuf) / sizeof(u64Int)];
+u64 targetBuf[sizeof(srcBuf) / sizeof(u64)];
 
 /* Allocate main table (in global memory) */
-u64Int *HPCC_Table;
+u64 *HPCC_Table;
 
 int main(int argc, char **argv)
 {
   int debug = 0;
 
-  s64Int i;
-  int NumProcs, logNumProcs, MyProc;
-  u64Int GlobalStartMyProc;
-  u64Int Top;               /* Number of table entries in top of Table */
-  s64Int LocalTableSize;    /* Local table width */
-  u64Int MinLocalTableSize; /* Integer ratio TableSize/NumProcs */
-  u64Int logTableSize, TableSize;
+  s64 i;
+  u64 NumProcs, logNumProcs, MyProc;
+  u64 GlobalStartMyProc;
+  u64 Top;               /* Number of table entries in top of Table */
+  s64 LocalTableSize;    /* Local table width */
+  u64 MinLocalTableSize; /* Integer ratio TableSize/NumProcs */
+  u64 logTableSize, TableSize;
 
   double CPUTime;               /* CPU  time to update table */
   double RealTime;              /* Real time to update table */
@@ -74,13 +79,13 @@ int main(int argc, char **argv)
   int PowerofTwo;
 
   double timeBound = -1;  /* OPTIONAL time bound for execution time */
-  u64Int NumUpdates_Default; /* Number of updates to table (suggested: 4x number of table entries) */
-  u64Int NumUpdates;  /* actual number of updates to table - may be smaller than
+  u64 NumUpdates_Default; /* Number of updates to table (suggested: 4x number of table entries) */
+  u64 NumUpdates;  /* actual number of updates to table - may be smaller than
                        * NumUpdates_Default due to execution time bounds */
-  s64Int ProcNumUpdates; /* number of updates per processor */
-  s64Int *NumErrors, *GlbNumErrors;
+  s64 ProcNumUpdates; /* number of updates per processor */
+  s64 *NumErrors, *GlbNumErrors;
 #ifdef RA_TIME_BOUND
-  s64Int GlbNumUpdates;  /* for reduction */
+  s64 GlbNumUpdates;  /* for reduction */
 #endif
 
   long *llpSync;
@@ -98,7 +103,6 @@ int main(int argc, char **argv)
   int *sAbort, *rAbort;
 
   shmem_init();
-
   /*Allocate symmetric memory*/
   sAbort = (int *)shmem_malloc(sizeof(int));
   rAbort = (int *)shmem_malloc(sizeof(int));
@@ -109,8 +113,8 @@ int main(int argc, char **argv)
 
   GUPs = (double *)shmem_malloc(sizeof(double));
   temp_GUPs = (double *)shmem_malloc(sizeof(double));
-  GlbNumErrors = (s64Int *)shmem_malloc(sizeof(s64Int));
-  NumErrors = (s64Int *)shmem_malloc(sizeof(s64Int));
+  GlbNumErrors = (s64 *)shmem_malloc(sizeof(s64));
+  NumErrors = (s64 *)shmem_malloc(sizeof(s64));
 
   *GlbNumErrors = 0;
   *NumErrors = 0;
@@ -133,7 +137,7 @@ int main(int argc, char **argv)
   TotalMem = 20000000; /* max single node memory */
   TotalMem *= NumProcs;             /* max memory in NumProcs nodes */
 
-  TotalMem /= sizeof(u64Int);
+  TotalMem /= sizeof(u64);
 
   /* calculate TableSize --- the size of update array (must be a power of 2) */
   for (TotalMem *= 0.5, logTableSize = 0, TableSize = 1;
@@ -149,7 +153,7 @@ int main(int argc, char **argv)
   *sAbort = 0;
 
   /*Shmalloc HPCC_Table for RMA*/
-  HPCC_Table = (u64Int *)shmem_malloc( sizeof(u64Int)*LocalTableSize );
+  HPCC_Table = (u64 *)shmem_malloc( sizeof(u64)*LocalTableSize );
   if (! HPCC_Table) *sAbort = 1;
 
 
@@ -160,7 +164,7 @@ int main(int argc, char **argv)
   if (*rAbort > 0) {
     if (MyProc == 0) fprintf(outFile, "Failed to allocate memory for the main table.\n");
     /* check all allocations in case there are new added and their order changes */
-    if (HPCC_Table) HPCC_free( HPCC_Table );
+    //if (HPCC_Table) HPCC_free( HPCC_Table );
     goto failed_table;
   }
 
@@ -170,16 +174,16 @@ int main(int argc, char **argv)
   NumUpdates = NumUpdates_Default;
 
   if (MyProc == 0) {
-    fprintf( outFile, "Running on %d processors%s\n", NumProcs, PowerofTwo ? " (PowerofTwo)" : "");
+    fprintf( outFile, "Running on " FSTR64 " processors%s\n", NumProcs, PowerofTwo ? " (PowerofTwo)" : "");
     fprintf( outFile, "Total Main table size = 2^" FSTR64 " = " FSTR64 " words\n",logTableSize, TableSize );
     if (PowerofTwo)
         fprintf( outFile, "PE Main table size = 2^" FSTR64 " = " FSTR64 " words/PE\n",
                  (logTableSize - logNumProcs), TableSize/NumProcs );
       else
-        fprintf( outFile, "PE Main table size = (2^" FSTR64 ")/%d  = " FSTR64 " words/PE MAX\n",
+        fprintf( outFile, "PE Main table size = (2^" FSTR64 ")/" FSTR64 "  = " FSTR64 " words/PE MAX\n",
                  logTableSize, NumProcs, LocalTableSize);
 
-    fprintf( outFile, "Default number of updates (RECOMMENDED) = " FSTR64 "\tand actually done = %d\n", NumUpdates_Default,ProcNumUpdates*NumProcs);
+    fprintf( outFile, "Default number of updates (RECOMMENDED) = " FSTR64 "\tand actually done = " FSTR64 "\n", NumUpdates_Default,ProcNumUpdates*NumProcs);
   }
 
   /* Initialize main table */
@@ -192,28 +196,28 @@ int main(int argc, char **argv)
   int logTableLocal,ipartner,iterate,niterate;
   int ndata,nkeep,nsend,nrecv,index,nlocalm1;
   int numthrds;
-  u64Int datum,procmask;
-  u64Int *data,*send;
+  u64 datum,procmask;
+  u64 *data,*send;
   void * tstatus;
   int remote_proc, offset;
-  u64Int *tb;
-  s64Int remotecount;
+  u64 *tb;
+  s64 remotecount;
   int thisPeId;
   int numNodes;
   int count2;
 
-  s64Int *count;
-  s64Int *updates;
-  s64Int *all_updates;
-  s64Int *ran;
+  s64 *count;
+  s64 *updates;
+  s64 *all_updates;
+  s64 *ran;
 
   thisPeId = shmem_my_pe();
   numNodes = shmem_n_pes();
 
-  count = (s64Int *) shmem_malloc(sizeof(s64Int));
-  ran = (s64Int *) shmem_malloc(sizeof(s64Int));
-  updates = (s64Int *) shmem_malloc(sizeof(s64Int) * numNodes);/* An array of length npes to avoid overwrites*/
-  all_updates = (s64Int *) shmem_malloc(sizeof(s64Int) * numNodes);/*: An array to collect sum*/
+  count = (s64 *) shmem_malloc(sizeof(s64));
+  ran = (s64 *) shmem_malloc(sizeof(s64));
+  updates = (s64 *) shmem_malloc(sizeof(s64) * numNodes);/* An array of length npes to avoid overwrites*/
+  all_updates = (s64 *) shmem_malloc(sizeof(s64) * numNodes);/*: An array to collect sum*/
 
   *ran = starts(4*GlobalStartMyProc);
 
@@ -227,13 +231,15 @@ int main(int argc, char **argv)
     all_updates = 0;
   }
   int verify=0; 
-  u64Int remote_val;
+  u64 remote_val;
 
   shmem_barrier_all();
   /* Begin timed section */
   RealTime = -RTSEC();
+  // This is such shit code.
+
   for (iterate = 0; iterate < niterate; iterate++) {
-      *ran = (*ran << 1) ^ ((s64Int) *ran < ZERO64B ? POLY : ZERO64B);
+      *ran = (*ran << 1) ^ ((s64) *ran < ZERO64B ? POLY : ZERO64B);
       remote_proc = (*ran >> logTableLocal) & (numNodes - 1);
 
       /*Forces updates to remote PE only*/
@@ -268,8 +274,8 @@ int main(int argc, char **argv)
   if(verify){
     for (j = 1; j < numNodes; j++)
       updates[0] += updates[j];
-    int cpu = sched_getcpu();
-    printf("PE%d CPU%d  updates:%d\n",MyProc,cpu,updates[0]);
+    u64 cpu = 0; //sched_getcpu();
+    printf("PE" FSTR64 " CPU" FSTR64 "  updates:" FSTR64 "\n",MyProc,cpu,updates[0]);
 
     shmem_longlong_sum_to_all(all_updates,updates, NumProcs, 0,0, NumProcs,llpWrk, llpSync);
     if(MyProc == 0){
@@ -293,7 +299,7 @@ int main(int argc, char **argv)
   /* Deallocate memory (in reverse order of allocation which should
  *      help fragmentation) */
 
-  HPCC_free( HPCC_Table );
+  //HPCC_free( HPCC_Table );
   failed_table:
 
   if (0 == MyProc) if (outFile != stderr) fclose( outFile );
@@ -315,13 +321,13 @@ int main(int argc, char **argv)
 }
 
 /* Utility routine to start random number generator at Nth step */
-s64Int
-starts(u64Int n)
+s64
+starts(u64 n)
 {
-  /* s64Int i, j; */
+  /* s64 i, j; */
   int i, j;
-  u64Int m2[64];
-  u64Int temp, ran;
+  u64 m2[64];
+  u64 temp, ran;
 
   while (n < 0)
     n += PERIOD;
@@ -334,8 +340,8 @@ starts(u64Int n)
   for (i=0; i<64; i++)
     {
       m2[i] = temp;
-      temp = (temp << 1) ^ ((s64Int) temp < 0 ? POLY : 0);
-      temp = (temp << 1) ^ ((s64Int) temp < 0 ? POLY : 0);
+      temp = (temp << 1) ^ ((s64) temp < 0 ? POLY : 0);
+      temp = (temp << 1) ^ ((s64) temp < 0 ? POLY : 0);
     }
 
   for (i=62; i>=0; i--)
@@ -353,7 +359,7 @@ starts(u64Int n)
       ran = temp;
       i -= 1;
       if ((n >> i) & 1)
-        ran = (ran << 1) ^ ((s64Int) ran < 0 ? POLY : 0);
+        ran = (ran << 1) ^ ((s64) ran < 0 ? POLY : 0);
     }
 
   return ran;
