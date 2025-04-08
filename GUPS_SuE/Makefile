@@ -1,4 +1,7 @@
-#
+CC ?= gcc
+
+all:
+	$(CC) -g -o gups.local SHMEMRandomAccess.c
 #
 # OpenSHMEM version:
 #
@@ -35,48 +38,48 @@
 # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-
 #
-# OpenSHMEM compiler commandss
+##
+## OpenSHMEM compiler commandss
+##
+#CC             = oshcc
+#LD             = $(CC)
 #
-CC             = oshcc
-LD             = $(CC)
-
-CFLAGS         = -O3
-
+#CFLAGS         = -O3
 #
-# any extra paths/flags needed
+##
+## any extra paths/flags needed
+##
+#SHMEM_INC_PATH =
+#SHMEM_LDFLAGS  =
+#SHMEM_LIBS     =
 #
-SHMEM_INC_PATH =
-SHMEM_LDFLAGS  =
-SHMEM_LIBS     =
-
-CPPFLAGS       = -I./include $(SHMEM_INC_PATH)
-LDFLAGS        = $(CFLAGS) $(SHMEM_LDFLAGS)
-LIBS           = $(SHMEM_LIBS) -lm
-
-TARGET         = gups
-
-SOURCES        = SHMEMRandomAccess.c 
-OBJECTS        = $(SOURCES:.c=.o) 
-
-.PHONY:	all	clean
-
+#CPPFLAGS       = -I./include $(SHMEM_INC_PATH)
+#LDFLAGS        = $(CFLAGS) $(SHMEM_LDFLAGS)
+#LIBS           = $(SHMEM_LIBS) -lm
 #
-# make starts here
+#TARGET         = gups
 #
-
-all:  $(TARGET)
-
-$(TARGET): $(OBJECTS) 
-	$(LD) $(LDFLAGS) $^ -o $@ $(LIBS)
-
-clean:
-	rm -f $(OBJECTS) $(TARGET)
-
-
+#SOURCES        = SHMEMRandomAccess.c 
+#OBJECTS        = $(SOURCES:.c=.o) 
 #
-# object/header deps
+#.PHONY:	all	clean
 #
-
-SHMEMRandomAccess.o:	RandomAccess.h
+##
+## make starts here
+##
+#
+#all:  $(TARGET)
+#
+#$(TARGET): $(OBJECTS) 
+#	$(LD) $(LDFLAGS) $^ -o $@ $(LIBS)
+#
+#clean:
+#	rm -f $(OBJECTS) $(TARGET)
+#
+#
+##
+## object/header deps
+##
+#
+#SHMEMRandomAccess.o:	RandomAccess.h
