@@ -1,0 +1,24 @@
+This is a modified version of the Random Access Benchmark initially developed by David Koester and Bob Lucas.
+Basic requirements of the RandomAccess benchmark are:
+ (1) size of the table T[ ] being a power of two and approximately half the global memory and with 
+ (2) look-ahead and storage constraints being followed. Specifically, attempts to improve memory access characteristics by reordering the address stream -- so that all updates are "local" -- violates the rules of the RandomAccess benchmark.
+
+In the OpenSHMEM version the entire HPCC_Table is allocated via shmem_malloc and all update locations are ensured to be both random and remote.
+
+To compile:
+* In the Makefile set CC to the correct compiler. Default is set to oshcc.
+* Type 'make' in the main folder
+* Executable produced is 'gups'
+
+Sample results:
+* On Intel® Xeon® E5 Cluster -2660 processors with 10 physical cores and hyper threading, a Mellanox ConnectX-4 VPI adapter card, EDR IB (100 Gb/s) and 12 GB RAM.
+
+oshrun -np 32 ./gups
+
+Running on 32 processors
+Total Main table size = 2^26 = 67108864 words
+PE Main table size = (2^26)/32  = 2097152 words/PE MAX
+Default number of updates (RECOMMENDED) = 268435456	and actually done = 268435456
+Real time used = 58.660473 seconds
+0.004576087 Billion(10^9) Updates    per second [GUP/s]
+0.000143003 Billion(10^9) Updates/PE per second [GUP/s]
